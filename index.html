@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دفترچه تلفن کلاس | Class Directory</title>
+    <!-- Vazirmatn Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="site-header">
+            <div class="logo-area">
+                <i class="fa-solid fa-address-book logo-icon"></i>
+                <span class="logo-text">Class Directory</span>
+            </div>
+            
+            <div class="header-right-group">
+                <!-- Theme Switcher -->
+                <div class="theme-switcher">
+                    <button class="theme-btn active" data-theme="dark" title="حالت تیره">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <button class="theme-btn" data-theme="light" title="حالت روشن">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                    <button class="theme-btn" data-theme="girly" title="حالت دخترونه (صورتی)">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </button>
+                </div>
+                <div class="header-badge">دفترچه تلفن کلاس</div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <h1 class="hero-title">غمت نباشه شماره همه رو گذاشتم برات</h1>
+                <p class="hero-subtitle">فقط اسم یا شماره یا آیدی طرف رو سرچ کن تا اطلاعاتش بیاد</p>
+            </section>
+
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="اسم، فامیلی، شماره، آیدی تلگرام ..." 
+                        autocomplete="off"
+                    >
+                    <button id="clearSearch" class="clear-btn hidden" title="پاک کردن جستجو">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="results-info">
+                    <span id="resultsCount">آماده جستجو...</span>
+                </div>
+            </section>
+
+            <!-- Contacts Grid -->
+            <section class="contacts-section">
+                <div id="contactsGrid" class="contacts-grid hidden">
+                    <!-- Cards will be dynamically inserted here -->
+                </div>
+
+                <!-- Empty State & Student Recommendation Card -->
+                <div id="emptyState" class="empty-state">
+                    <div id="emptyIconWrap" class="empty-icon-wrap">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <h3 id="emptyTitle">جستجو در دفترچه تلفن کلاس</h3>
+                    <p id="emptyDesc">برای شروع، نام، نام خانوادگی یا شماره همکلاسی موردنظرت را در کادر بالا تایپ کن.</p>
+                    
+                    <div id="recommendationCard" class="recommendation-card" style="display: none;">
+                        <div class="rec-icon">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+                        <div class="rec-content">
+                            <h4>پیداش نکردی؟</h4>
+                            <p>فدای سرت بزن روی دکمه زیر و توی تلگرام بگو بهم تا برات اوکیش کنم</p>
+                            <a href="#" id="recommendTelegramBtn" target="_blank" class="rec-btn">
+                                <i class="fa-brands fa-telegram"></i>
+                                معرفی دانش‌آموز
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-brand">Class Directory</div>
+                <div class="footer-developer">
+                    طراحی و توسعه توسط <span id="developerName">سازنده سایت</span> 
+                    (<a href="#" id="developerTelegram" target="_blank">@TelegramID</a>)
+                </div>
+                <div class="footer-year">© 2026</div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
