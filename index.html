@@ -21,8 +21,9 @@
             </div>
             
             <div class="header-right-group">
-                <!-- Theme Switcher -->
-                <div class="theme-switcher">
+                <!-- Theme Switcher with Sliding Pill Indicator -->
+                <div class="theme-switcher" data-active-theme="dark">
+                    <div class="theme-indicator"></div>
                     <button class="theme-btn active" data-theme="dark" title="حالت تیره">
                         <i class="fa-solid fa-moon"></i>
                     </button>
@@ -45,6 +46,17 @@
                 <p class="hero-subtitle">فقط اسم یا شماره یا آیدی طرف رو سرچ کن تا اطلاعاتش بیاد</p>
             </section>
 
+            <!-- Tabs Section with Sliding Elastic Effect -->
+            <section class="tabs-section" data-active-tab="students">
+                <div class="tab-indicator"></div>
+                <button class="tab-btn active" data-tab="students">
+                    <i class="fa-solid fa-user-graduate"></i> دانش‌آموزان
+                </button>
+                <button class="tab-btn" data-tab="teachers">
+                    <i class="fa-solid fa-chalkboard-user"></i> اساتید
+                </button>
+            </section>
+
             <!-- Search Section -->
             <section class="search-section">
                 <div class="search-box">
@@ -59,6 +71,12 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
+                
+                <!-- Live Search Loading Indicator -->
+                <div id="searchLoading" class="search-loading hidden">
+                    <i class="fa-solid fa-spinner fa-spin"></i> در حال جستجو...
+                </div>
+
                 <div class="results-info">
                     <span id="resultsCount">آماده جستجو...</span>
                 </div>
@@ -66,19 +84,19 @@
 
             <!-- Contacts Grid -->
             <section class="contacts-section">
-                <div id="contactsGrid" class="contacts-grid hidden">
+                <div id="contactsGrid" class="contacts-grid">
                     <!-- Cards will be dynamically inserted here -->
                 </div>
 
                 <!-- Empty State & Student Recommendation Card -->
-                <div id="emptyState" class="empty-state">
+                <div id="emptyState" class="empty-state hidden">
                     <div id="emptyIconWrap" class="empty-icon-wrap">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-user-slash"></i>
                     </div>
-                    <h3 id="emptyTitle">جستجو در دفترچه تلفن کلاس</h3>
-                    <p id="emptyDesc">برای شروع، نام، نام خانوادگی یا شماره همکلاسی موردنظرت را در کادر بالا تایپ کن.</p>
+                    <h3 id="emptyTitle">اوه!</h3>
+                    <p id="emptyDesc">کسی با این مشخصات پیدا نشد</p>
                     
-                    <div id="recommendationCard" class="recommendation-card" style="display: none;">
+                    <div id="recommendationCard" class="recommendation-card">
                         <div class="rec-icon">
                             <i class="fa-solid fa-user-plus"></i>
                         </div>
@@ -100,13 +118,88 @@
             <div class="footer-content">
                 <div class="footer-brand">Class Directory</div>
                 <div class="footer-developer">
-                    طراحی و توسعه توسط <span id="developerName">سازنده سایت</span> 
-                    (<a href="#" id="developerTelegram" target="_blank">@TelegramID</a>)
+                    طراحی و توسعه توسط <span id="developerName">عطا</span> 
+                    (<a href="#" id="developerTelegram" target="_blank">@Ata_iii</a>)
                 </div>
-                <div class="footer-year">© 2026</div>
+                <div class="footer-bottom-row">
+                    <button id="versionBtn" class="version-btn" title="مشاهده تغییرات نسخه">نسخه 0.2 🚀</button>
+                    <span class="footer-year">© 2026</span>
+                </div>
             </div>
         </footer>
     </div>
+
+    <!-- Update Modal Popup (Structured & Categorized) -->
+    <div id="updateModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon-wrap">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <div>
+                    <h3>نسخه جدید 0.2 منتشر شد! 🚀</h3>
+                    <span class="modal-subtitle">نگاهی به تغییرات و امکانات تازه سایت</span>
+                </div>
+            </div>
+            
+            <div class="modal-body changelog-sections">
+                <div class="changelog-card">
+                    <div class="changelog-icon-box" style="color: #818CF8;">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <div class="changelog-info">
+                        <h4>سرفصل‌بندی و دسته‌بندی</h4>
+                        <p>اضافه شدن تب‌های مجزا با انیمیشن اسلایدی روان برای مدیریت راحت‌تر اساتید و دانش‌آموزان.</p>
+                    </div>
+                </div>
+
+                <div class="changelog-card">
+                    <div class="changelog-icon-box" style="color: #EC4899;">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <div class="changelog-info">
+                        <h4>انیمیشن‌های کشسانی و لود تنبل</h4>
+                        <p>افزودن دکمه‌های حرکتی نرم و لود تنبل (Lazy Load) همراه با اسپینر برای نمایش مخاطبین.</p>
+                    </div>
+                </div>
+
+                <div class="changelog-card">
+                    <div class="changelog-icon-box" style="color: #10B981;">
+                        <i class="fa-solid fa-phone-volume"></i>
+                    </div>
+                    <div class="changelog-info">
+                        <h4>ارتباط مستقیم</h4>
+                        <p>قابلیت تماس تلفنی سریع (`tel:`) و ورود مستقیم به چت تلگرام با یک کلیک.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button id="closeModalBtn" class="modal-btn">عالیه، بریم سراغ سایت! 🔥</button>
+        </div>
+    </div>
+
+<!-- Version Changelog Modal -->
+<div id="changelogModal" class="modal-overlay hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="modal-icon-wrap" style="color: var(--primary);">
+                <i class="fa-solid fa-code-branch"></i>
+            </div>
+            <h3>تاریخچه نسخه‌های سایت</h3>
+        </div>
+        <div class="modal-body changelog-body">
+            <div class="version-block">
+                <h4>نسخه 0.2 (نسخه فعلی) 🔥</h4>
+                <p>• تفکیک سرفصل‌ها و تب‌های اساتید و دانش‌آموزان<br>• افزودن انیمیشن‌های اسلایدی و کشسانی برای تم‌ها و تب‌ها<br>• پیاده‌سازی لود تنبل (Lazy Load) و اسکرول نرم برای نمایش بقیه مخاطبین<br>• بازطراحی پاپ‌آپ‌ها به صورت کارت‌های سرفصل‌بندی‌شده</p>
+            </div>
+            <div class="version-block" style="margin-top: 12px;">
+                <h4>نسخه 0.1</h4>
+                <p>• راه‌اندازی اولیه و ساخت بیس اصلی پروژه<br>• افزودن ۳ تم جذاب (تیره، روشن، دخترونه صورتی)<br>• سیستم کپی آسان شماره و آیدی تلگرام</p>
+            </div>
+        </div>
+        <button id="closeChangelogBtn" class="modal-btn">بستن</button>
+    </div>
+</div>
 
     <!-- Main JavaScript -->
     <script src="app.js"></script>
